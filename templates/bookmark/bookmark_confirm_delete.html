@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends 'base.html' %} <!--[extends] 태그를 사용해 어떤 템플릿을 기준 템플릿으로 사용할 것인지 결정한다.-->
+
+    {% block title %}Confirm Delete{% endblock %}
+
+    {% block content %}
+    <form action="" method="post">
+            {% csrf_token %} <!--form 태그안에는 csrf_token이 무조건 같이 있어야한다!!!-->
+            <div class="alert alert-danger">Do you want to delete Bookmark "{{object}}"?</div>
+            <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
+
+    {% endblock %}
+</body>
+</html>
